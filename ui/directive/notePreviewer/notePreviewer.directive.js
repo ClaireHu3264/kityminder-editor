@@ -67,11 +67,13 @@ angular.module('kityminderEditor')
 					var ph = $($previewer).outerHeight();
 
 					var x = b.cx - pw / 2 - $container[0].offsetLeft;
-					var y = b.bottom + 10 - $container[0].offsetTop;
+					// var y = b.bottom + 10 - $container[0].offsetTop;
+					var y = b.bottom + 10 - $('.minder-editor-container').offset().top;
 
 					if (x < 0) x = 10;
 					if (x + pw > cw) x = b.left - pw - 10 - $container[0].offsetLeft;
-					if (y + ph > ch) y = b.top - ph - 10 - $container[0].offsetTop;
+					// if (y + ph > ch) y = b.top - ph - 10 - $container[0].offsetTop;
+					if (y + ph > ch) y = b.top - ph - 10 - $('.minder-editor-container').offset().top
 
 
 					scope.previewerStyle = {

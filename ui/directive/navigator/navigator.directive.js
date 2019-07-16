@@ -8,7 +8,7 @@
  *
  * @copyright: Baidu FEX, 2015 */
 angular.module('kityminderEditor')
-    .directive('navigator', ['memory', 'config', function(memory, config) {
+    .directive('navigator', ['memory', 'kmConfig', function(memory, kmConfig) {
         return {
             restrict: 'A',
             templateUrl: 'ui/directive/navigator/navigator.html',
@@ -16,7 +16,7 @@ angular.module('kityminderEditor')
                 minder: '='
             },
             link: function(scope) {
-                minder.setDefaultOptions({zoom: config.get('zoom')});
+                minder.setDefaultOptions({zoom: kmConfig.get('zoom')});
 
                 scope.isNavOpen = !memory.get('navigator-hidden');
 

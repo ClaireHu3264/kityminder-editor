@@ -1,4 +1,4 @@
-<div class="btn-group-vertical note-btn-group" dropdown is-open="isopen">
+<div class="btn-group-vertical note-btn-group" uib-dropdown is-open="isopen">
     <button type="button"
             class="btn btn-default note-btn"
             title="{{ 'note' | lang:'ui' }}"
@@ -9,7 +9,7 @@
             class="btn btn-default note-btn-caption dropdown-toggle"
             ng-disabled="minder.queryCommandState('note') === -1"
             title="{{ 'note' | lang:'ui' }}"
-            dropdown-toggle>
+            uib-dropdown-toggle>
         <span class="caption">{{ 'note' | lang:'ui' }}</span>
         <span class="caret"></span>
         <span class="sr-only">{{ 'note' | lang:'ui' }}</span>

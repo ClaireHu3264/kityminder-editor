@@ -1,4 +1,4 @@
-<div class="btn-group-vertical" dropdown is-open="isopen">
+<div class="btn-group-vertical" uib-dropdown is-open="isopen">
     <button type="button"
             class="btn btn-default image-btn"
             title="{{ 'image' | lang:'ui' }}"
@@ -9,7 +9,7 @@
             class="btn btn-default image-btn-caption dropdown-toggle"
             ng-disabled="minder.queryCommandState('Image') === -1"
             title="{{ 'image' | lang:'ui' }}"
-            dropdown-toggle>
+            uib-dropdown-toggle>
         <span class="caption">{{ 'image' | lang:'ui' }}</span>
         <span class="caret"></span>
         <span class="sr-only">{{ 'image' | lang:'ui' }}</span>

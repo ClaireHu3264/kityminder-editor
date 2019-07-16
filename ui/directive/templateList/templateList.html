@@ -1,7 +1,7 @@
-<div class="dropdown temp-panel" dropdown on-toggle="toggled(open)">
+<div class="dropdown temp-panel" uib-dropdown on-toggle="toggled(open)">
 	<div class="dropdown-toggle current-temp-item"
          ng-disabled="minder.queryCommandState('template') === -1"
-         dropdown-toggle>
+         uib-dropdown-toggle>
 		<a href class=" temp-item {{ minder.queryCommandValue('template') }}"  title="{{ minder.queryCommandValue('template') | lang: 'template' }}"></a>
 		<span class="caret"></span>
 	</div>

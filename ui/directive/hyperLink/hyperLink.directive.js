@@ -1,5 +1,5 @@
 angular.module('kityminderEditor')
-    .directive('hyperLink', ['$modal', function($modal) {
+    .directive('hyperLink', ['$uibModal', function($uibModal) {
         return {
             restrict: 'E',
             templateUrl: 'ui/directive/hyperLink/hyperLink.html',
@@ -14,7 +14,7 @@ angular.module('kityminderEditor')
 
                     var link = minder.queryCommandValue('HyperLink');
 
-                    var hyperlinkModal = $modal.open({
+                    var hyperlinkModal = $uibModal.open({
                         animation: true,
                         templateUrl: 'ui/dialog/hyperlink/hyperlink.tpl.html',
                         controller: 'hyperlink.ctrl',

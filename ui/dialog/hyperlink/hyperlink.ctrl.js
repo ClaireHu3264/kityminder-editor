@@ -1,5 +1,5 @@
 angular.module('kityminderEditor')
-    .controller('hyperlink.ctrl', function ($scope, $modalInstance, link) {
+    .controller('hyperlink.ctrl', function ($scope, $uibModalInstance, link) {
 
         var urlRegex = '^(?!mailto:)(?:(?:http|https|ftp)://)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$';
         $scope.R_URL = new RegExp(urlRegex, 'i');
@@ -25,7 +25,7 @@ angular.module('kityminderEditor')
 
         $scope.ok = function () {
             if($scope.R_URL.test($scope.url)) {
-                $modalInstance.close({
+                $uibModalInstance.close({
                     url: $scope.url,
                     title: $scope.title
                 });
@@ -40,7 +40,7 @@ angular.module('kityminderEditor')
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
             editor.receiver.selectAll();
         };
 

@@ -1,4 +1,4 @@
-angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.service', function($modal, minderService) {
+angular.module('kityminderEditor').service('revokeDialog', ['$uibModal', 'minder.service', function($uibModal, minderService) {
 
     minderService.registerEvent(function() {
 
@@ -11,7 +11,7 @@ angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.se
         minder.on('importNodeData', function() {
             parentFSM.jump('modal', 'import-text-modal');
 
-            var importModal = $modal.open({
+            var importModal = $uibModal.open({
                 animation: true,
                 templateUrl: 'ui/dialog/imExportNode/imExportNode.tpl.html',
                 controller: 'imExportNode.ctrl',
@@ -46,7 +46,7 @@ angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.se
         minder.on('exportNodeData', function() {
             parentFSM.jump('modal', 'export-text-modal');
 
-            var exportModal = $modal.open({
+            var exportModal = $uibModal.open({
                 animation: true,
                 templateUrl: 'ui/dialog/imExportNode/imExportNode.tpl.html',
                 controller: 'imExportNode.ctrl',

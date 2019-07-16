@@ -1,5 +1,5 @@
 angular.module('kityminderEditor')
-    .controller('imExportNode.ctrl', function ($scope, $modalInstance, title, defaultValue, type) {
+    .controller('imExportNode.ctrl', function ($scope, $uibModalInstance, title, defaultValue, type) {
 
         $scope.title = title;
 
@@ -11,12 +11,12 @@ angular.module('kityminderEditor')
             if ($scope.value == '') {
                 return;
             }
-            $modalInstance.close($scope.value);
+            $uibModalInstance.close($scope.value);
             editor.receiver.selectAll();
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
             editor.receiver.selectAll();
         };
 

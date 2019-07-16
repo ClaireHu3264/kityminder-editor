@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="../bower_components/color-picker/dist/color-picker.min.css" />
 	<!-- endbower -->
 
-	<link rel="stylesheet" href="kityminder.editor.min.css">
+	<link rel="stylesheet" href="./styles/kityminder.editor.min.css">
 
 	<style>
 		html, body {
@@ -45,14 +45,16 @@
 </head>
 <body ng-app="kityminderDemo" ng-controller="MainController">
 <h1 class="editor-title">KityMinder Editor - Powered By FEX</h1>
+
 <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
 </body>
 
 <!-- bower:js -->
 <script src="../bower_components/jquery/dist/jquery.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../bower_components/angular/angular.js"></script>
-<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-touch/angular-touch.js"></script>
+<script src="../bower_components/worktile-ui-bootstrap/dist/ui-bootstrap-tpls-2.6.1.js"></script>
 <script src="../bower_components/codemirror/lib/codemirror.js"></script>
 <script src="../bower_components/codemirror/mode/xml/xml.js"></script>
 <script src="../bower_components/codemirror/mode/javascript/javascript.js"></script>
@@ -66,18 +68,18 @@
 <script src="../bower_components/kity/dist/kity.min.js"></script>
 <script src="../bower_components/hotbox/hotbox.js"></script>
 <script src="../bower_components/json-diff/json-diff.js"></script>
-<script src="../node_modules/kityminder-core/dist/kityminder.core.min.js"></script>
+<script src="../node_modules/kityminder-core/dist/kityminder.core.js"></script>
 <script src="../bower_components/color-picker/dist/color-picker.min.js"></script>
 <!-- endbower -->
 
-<script src="kityminder.editor.min.js"></script>
+<script src="kityminder.editor.js"></script>
 
 
 <script>
 	angular.module('kityminderDemo', ['kityminderEditor'])
-			.config(function (configProvider) {
-				configProvider.set('imageUpload', '../server/imageUpload.php');
-			})
+			// .config(function (configProvider) {
+			// 	configProvider.set('imageUpload', '../server/imageUpload.php');
+			// })
 			.controller('MainController', function($scope) {
 				$scope.initEditor = function(editor, minder) {
 					window.editor = editor;

@@ -1,5 +1,5 @@
 angular.module('kityminderEditor')
-	.provider('config',  function() {
+	.provider('kmConfig',  function() {
 
 		this.config = {
 			// 右侧面板最小宽度
@@ -18,7 +18,8 @@ angular.module('kityminderEditor')
 			zoom: [10, 20, 30, 50, 80, 100, 120, 150, 200],
 
             // 图片上传接口
-            imageUpload: 'server/imageUpload.php'
+			imageUpload: 'server/imageUpload.php',
+			
 		};
 
 		this.set = function(key, value) {

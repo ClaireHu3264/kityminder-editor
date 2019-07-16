@@ -1,5 +1,5 @@
 angular.module('kityminderEditor')
-    .directive('imageBtn', ['$modal', function($modal) {
+    .directive('imageBtn', ['$uibModal', function($uibModal) {
         return {
             restrict: 'E',
             templateUrl: 'ui/directive/imageBtn/imageBtn.html',
@@ -14,7 +14,7 @@ angular.module('kityminderEditor')
 
                     var image = minder.queryCommandValue('image');
 
-                    var imageModal = $modal.open({
+                    var imageModal = $uibModal.open({
                         animation: true,
                         templateUrl: 'ui/dialog/image/image.tpl.html',
                         controller: 'image.ctrl',

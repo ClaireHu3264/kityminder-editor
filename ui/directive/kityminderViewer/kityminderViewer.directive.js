@@ -1,5 +1,5 @@
 angular.module('kityminderEditor')
-    .directive('kityminderViewer', ['config', 'minder.service', function(config, minderService) {
+    .directive('kityminderViewer', ['kmConfig', 'minder.service', function(kmConfig, minderService) {
         return {
             restrict: 'EA',
             templateUrl: 'ui/directive/kityminderViewer/kityminderViewer.html',

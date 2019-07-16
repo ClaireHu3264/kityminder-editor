@@ -1,6 +1,6 @@
 /*!
  * ====================================================
- * kityminder-editor - v1.0.67 - 2019-02-12
+ * kityminder-editor - v1.0.67 - 2019-07-16
  * https://github.com/fex-team/kityminder-editor
  * GitHub: https://github.com/fex-team/kityminder-editor 
  * Copyright (c) 2019 ; Licensed 
@@ -2095,22 +2095,22 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('ui/directive/expandLevel/expandLevel.html',
-    "<div class=\"btn-group-vertical\" dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default expand\" title=\"{{ 'expandtoleaf' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"minder.execCommand('ExpandToLevel', 9999)\"></button> <button type=\"button\" class=\"btn btn-default expand-caption dropdown-toggle\" title=\"{{ 'expandtoleaf' | lang:'ui' }}\" dropdown-toggle><span class=\"caption\">{{ 'expandtoleaf' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'expandtoleaf' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li ng-repeat=\"level in levels\"><a href ng-click=\"minder.execCommand('ExpandToLevel', level)\">{{ 'expandtolevel' + level | lang:'ui/command' }}</a></li></ul></div>"
+    "<div class=\"btn-group-vertical\" uib-dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default expand\" title=\"{{ 'expandtoleaf' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"minder.execCommand('ExpandToLevel', 9999)\"></button> <button type=\"button\" class=\"btn btn-default expand-caption dropdown-toggle\" title=\"{{ 'expandtoleaf' | lang:'ui' }}\" uib-dropdown-toggle><span class=\"caption\">{{ 'expandtoleaf' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'expandtoleaf' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li ng-repeat=\"level in levels\"><a href ng-click=\"minder.execCommand('ExpandToLevel', level)\">{{ 'expandtolevel' + level | lang:'ui/command' }}</a></li></ul></div>"
   );
 
 
   $templateCache.put('ui/directive/fontOperator/fontOperator.html',
-    "<div class=\"font-operator\"><div class=\"dropdown font-family-list\" dropdown><div class=\"dropdown-toggle current-font-item\" dropdown-toggle ng-disabled=\"minder.queryCommandState('fontfamily') === -1\"><a href class=\"current-font-family\" title=\"{{ 'fontfamily' | lang: 'ui' }}\">{{ getFontfamilyName(minder.queryCommandValue('fontfamily')) || '字体' }}</a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu font-list\"><li ng-repeat=\"f in fontFamilyList\" class=\"font-item-wrap\"><a ng-click=\"minder.execCommand('fontfamily', f.val)\" class=\"font-item\" ng-class=\"{ 'font-item-selected' : f == minder.queryCommandValue('fontfamily') }\" ng-style=\"{'font-family': f.val }\">{{ f.name }}</a></li></ul></div><div class=\"dropdown font-size-list\" dropdown><div class=\"dropdown-toggle current-font-item\" dropdown-toggle ng-disabled=\"minder.queryCommandState('fontsize') === -1\"><a href class=\"current-font-size\" title=\"{{ 'fontsize' | lang: 'ui' }}\">{{ minder.queryCommandValue('fontsize') || '字号' }}</a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu font-list\"><li ng-repeat=\"f in fontSizeList\" class=\"font-item-wrap\"><a ng-click=\"minder.execCommand('fontsize', f)\" class=\"font-item\" ng-class=\"{ 'font-item-selected' : f == minder.queryCommandValue('fontsize') }\" ng-style=\"{'font-size': f + 'px'}\">{{ f }}</a></li></ul></div><span class=\"s-btn-icon font-bold\" ng-click=\"minder.queryCommandState('bold') === -1 || minder.execCommand('bold')\" ng-class=\"{'font-bold-selected' : minder.queryCommandState('bold') == 1}\" ng-disabled=\"minder.queryCommandState('bold') === -1\"></span> <span class=\"s-btn-icon font-italics\" ng-click=\"minder.queryCommandState('italic') === -1 || minder.execCommand('italic')\" ng-class=\"{'font-italics-selected' : minder.queryCommandState('italic') == 1}\" ng-disabled=\"minder.queryCommandState('italic') === -1\"></span><div class=\"font-color-wrap\"><span class=\"quick-font-color\" ng-click=\"minder.queryCommandState('forecolor') === -1 || minder.execCommand('forecolor', foreColor)\" ng-disabled=\"minder.queryCommandState('forecolor') === -1\">A</span> <span color-picker class=\"font-color\" set-color=\"setDefaultColor()\" ng-disabled=\"minder.queryCommandState('forecolor') === -1\"><span class=\"caret\"></span></span> <span class=\"font-color-preview\" ng-style=\"{ 'background-color': foreColor }\" ng-click=\"minder.queryCommandState('forecolor') === -1 || minder.execCommand('forecolor', foreColor)\" ng-disabled=\"minder.queryCommandState('forecolor') === -1\"></span></div><color-panel minder=\"minder\" class=\"inline-directive\"></color-panel></div>"
+    "<div class=\"font-operator\"><div class=\"dropdown font-family-list\" uib-dropdown><div class=\"dropdown-toggle current-font-item\" uib-dropdown-toggle ng-disabled=\"minder.queryCommandState('fontfamily') === -1\"><a href class=\"current-font-family\" title=\"{{ 'fontfamily' | lang: 'ui' }}\">{{ getFontfamilyName(minder.queryCommandValue('fontfamily')) || '字体' }}</a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu font-list\"><li ng-repeat=\"f in fontFamilyList\" class=\"font-item-wrap\"><a ng-click=\"minder.execCommand('fontfamily', f.val)\" class=\"font-item\" ng-class=\"{ 'font-item-selected' : f == minder.queryCommandValue('fontfamily') }\" ng-style=\"{'font-family': f.val }\">{{ f.name }}</a></li></ul></div><div class=\"dropdown font-size-list\" uib-dropdown><div class=\"dropdown-toggle current-font-item\" uib-dropdown-toggle ng-disabled=\"minder.queryCommandState('fontsize') === -1\"><a href class=\"current-font-size\" title=\"{{ 'fontsize' | lang: 'ui' }}\">{{ minder.queryCommandValue('fontsize') || '字号' }}</a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu font-list\"><li ng-repeat=\"f in fontSizeList\" class=\"font-item-wrap\"><a ng-click=\"minder.execCommand('fontsize', f)\" class=\"font-item\" ng-class=\"{ 'font-item-selected' : f == minder.queryCommandValue('fontsize') }\" ng-style=\"{'font-size': f + 'px'}\">{{ f }}</a></li></ul></div><span class=\"s-btn-icon font-bold\" ng-click=\"minder.queryCommandState('bold') === -1 || minder.execCommand('bold')\" ng-class=\"{'font-bold-selected' : minder.queryCommandState('bold') == 1}\" ng-disabled=\"minder.queryCommandState('bold') === -1\"></span> <span class=\"s-btn-icon font-italics\" ng-click=\"minder.queryCommandState('italic') === -1 || minder.execCommand('italic')\" ng-class=\"{'font-italics-selected' : minder.queryCommandState('italic') == 1}\" ng-disabled=\"minder.queryCommandState('italic') === -1\"></span><div class=\"font-color-wrap\"><span class=\"quick-font-color\" ng-click=\"minder.queryCommandState('forecolor') === -1 || minder.execCommand('forecolor', foreColor)\" ng-disabled=\"minder.queryCommandState('forecolor') === -1\">A</span> <span color-picker class=\"font-color\" set-color=\"setDefaultColor()\" ng-disabled=\"minder.queryCommandState('forecolor') === -1\"><span class=\"caret\"></span></span> <span class=\"font-color-preview\" ng-style=\"{ 'background-color': foreColor }\" ng-click=\"minder.queryCommandState('forecolor') === -1 || minder.execCommand('forecolor', foreColor)\" ng-disabled=\"minder.queryCommandState('forecolor') === -1\"></span></div><color-panel minder=\"minder\" class=\"inline-directive\"></color-panel></div>"
   );
 
 
   $templateCache.put('ui/directive/hyperLink/hyperLink.html',
-    "<div class=\"btn-group-vertical\" dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default hyperlink\" title=\"{{ 'link' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"addHyperlink()\" ng-disabled=\"minder.queryCommandState('HyperLink') === -1\"></button> <button type=\"button\" class=\"btn btn-default hyperlink-caption dropdown-toggle\" ng-disabled=\"minder.queryCommandState('HyperLink') === -1\" title=\"{{ 'link' | lang:'ui' }}\" dropdown-toggle><span class=\"caption\">{{ 'link' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'link' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li><a href ng-click=\"addHyperlink()\">{{ 'insertlink' | lang:'ui' }}</a></li><li><a href ng-click=\"minder.execCommand('HyperLink', null)\">{{ 'removelink' | lang:'ui' }}</a></li></ul></div>"
+    "<div class=\"btn-group-vertical\" uib-dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default hyperlink\" title=\"{{ 'link' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"addHyperlink()\" ng-disabled=\"minder.queryCommandState('HyperLink') === -1\"></button> <button type=\"button\" class=\"btn btn-default hyperlink-caption dropdown-toggle\" ng-disabled=\"minder.queryCommandState('HyperLink') === -1\" title=\"{{ 'link' | lang:'ui' }}\" uib-dropdown-toggle><span class=\"caption\">{{ 'link' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'link' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li><a href ng-click=\"addHyperlink()\">{{ 'insertlink' | lang:'ui' }}</a></li><li><a href ng-click=\"minder.execCommand('HyperLink', null)\">{{ 'removelink' | lang:'ui' }}</a></li></ul></div>"
   );
 
 
   $templateCache.put('ui/directive/imageBtn/imageBtn.html',
-    "<div class=\"btn-group-vertical\" dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default image-btn\" title=\"{{ 'image' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"addImage()\" ng-disabled=\"minder.queryCommandState('Image') === -1\"></button> <button type=\"button\" class=\"btn btn-default image-btn-caption dropdown-toggle\" ng-disabled=\"minder.queryCommandState('Image') === -1\" title=\"{{ 'image' | lang:'ui' }}\" dropdown-toggle><span class=\"caption\">{{ 'image' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'image' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li><a href ng-click=\"addImage()\">{{ 'insertimage' | lang:'ui' }}</a></li><li><a href ng-click=\"minder.execCommand('Image', '')\">{{ 'removeimage' | lang:'ui' }}</a></li></ul></div>"
+    "<div class=\"btn-group-vertical\" uib-dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default image-btn\" title=\"{{ 'image' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"addImage()\" ng-disabled=\"minder.queryCommandState('Image') === -1\"></button> <button type=\"button\" class=\"btn btn-default image-btn-caption dropdown-toggle\" ng-disabled=\"minder.queryCommandState('Image') === -1\" title=\"{{ 'image' | lang:'ui' }}\" uib-dropdown-toggle><span class=\"caption\">{{ 'image' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'image' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li><a href ng-click=\"addImage()\">{{ 'insertimage' | lang:'ui' }}</a></li><li><a href ng-click=\"minder.execCommand('Image', '')\">{{ 'removeimage' | lang:'ui' }}</a></li></ul></div>"
   );
 
 
@@ -2138,7 +2138,7 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('ui/directive/noteBtn/noteBtn.html',
-    "<div class=\"btn-group-vertical note-btn-group\" dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default note-btn\" title=\"{{ 'note' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"addNote()\" ng-disabled=\"minder.queryCommandState('note') === -1\"></button> <button type=\"button\" class=\"btn btn-default note-btn-caption dropdown-toggle\" ng-disabled=\"minder.queryCommandState('note') === -1\" title=\"{{ 'note' | lang:'ui' }}\" dropdown-toggle><span class=\"caption\">{{ 'note' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'note' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li><a href ng-click=\"addNote()\">{{ 'insertnote' | lang:'ui' }}</a></li><li><a href ng-click=\"minder.execCommand('note', null)\">{{ 'removenote' | lang:'ui' }}</a></li></ul></div>"
+    "<div class=\"btn-group-vertical note-btn-group\" uib-dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default note-btn\" title=\"{{ 'note' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"addNote()\" ng-disabled=\"minder.queryCommandState('note') === -1\"></button> <button type=\"button\" class=\"btn btn-default note-btn-caption dropdown-toggle\" ng-disabled=\"minder.queryCommandState('note') === -1\" title=\"{{ 'note' | lang:'ui' }}\" uib-dropdown-toggle><span class=\"caption\">{{ 'note' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'note' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li><a href ng-click=\"addNote()\">{{ 'insertnote' | lang:'ui' }}</a></li><li><a href ng-click=\"minder.execCommand('note', null)\">{{ 'removenote' | lang:'ui' }}</a></li></ul></div>"
   );
 
 
@@ -2155,7 +2155,7 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('ui/directive/notePreviewer/notePreviewer.html',
-    "<div id=\"previewer-content\" ng-show=\"showNotePreviewer\" ng-style=\"previewerStyle\" ng-bind-html=\"noteContent\"></div>"
+    "<div id=\"previewer-content\" class=\"markdown-body\" ng-show=\"showNotePreviewer\" ng-style=\"previewerStyle\" ng-bind-html=\"noteContent\"></div>"
   );
 
 
@@ -2185,12 +2185,12 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('ui/directive/searchBtn/searchBtn.html',
-    "<div class=\"btn-group-vertical\" dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default search\" title=\"{{ 'search' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"enterSearch()\"></button> <button type=\"button\" class=\"btn btn-default search-caption dropdown-toggle\" ng-click=\"enterSearch()\" title=\"{{ 'search' | lang:'ui' }}\"><span class=\"caption\">{{ 'search' | lang:'ui' }}</span> <span class=\"sr-only\">{{ 'search' | lang:'ui' }}</span></button></div>"
+    "<div class=\"btn-group-vertical\" uib-dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default search\" title=\"{{ 'search' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"enterSearch()\"></button> <button type=\"button\" class=\"btn btn-default search-caption dropdown-toggle\" ng-click=\"enterSearch()\" title=\"{{ 'search' | lang:'ui' }}\"><span class=\"caption\">{{ 'search' | lang:'ui' }}</span> <span class=\"sr-only\">{{ 'search' | lang:'ui' }}</span></button></div>"
   );
 
 
   $templateCache.put('ui/directive/selectAll/selectAll.html',
-    "<div class=\"btn-group-vertical\" dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default select\" title=\"{{ 'selectall' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"select['all']()\"></button> <button type=\"button\" class=\"btn btn-default select-caption dropdown-toggle\" title=\"{{ 'selectall' | lang:'ui' }}\" dropdown-toggle><span class=\"caption\">{{ 'selectall' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'selectall' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li ng-repeat=\"item in items\"><a href ng-click=\"select[item]()\">{{ 'select' + item | lang:'ui' }}</a></li></ul></div>"
+    "<div class=\"btn-group-vertical\" uib-dropdown is-open=\"isopen\"><button type=\"button\" class=\"btn btn-default select\" title=\"{{ 'selectall' | lang:'ui' }}\" ng-class=\"{'active': isopen}\" ng-click=\"select['all']()\"></button> <button type=\"button\" class=\"btn btn-default select-caption dropdown-toggle\" title=\"{{ 'selectall' | lang:'ui' }}\" uib-dropdown-toggle><span class=\"caption\">{{ 'selectall' | lang:'ui' }}</span> <span class=\"caret\"></span> <span class=\"sr-only\">{{ 'selectall' | lang:'ui' }}</span></button><ul class=\"dropdown-menu\" role=\"menu\"><li ng-repeat=\"item in items\"><a href ng-click=\"select[item]()\">{{ 'select' + item | lang:'ui' }}</a></li></ul></div>"
   );
 
 
@@ -2200,17 +2200,17 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('ui/directive/templateList/templateList.html',
-    "<div class=\"dropdown temp-panel\" dropdown on-toggle=\"toggled(open)\"><div class=\"dropdown-toggle current-temp-item\" ng-disabled=\"minder.queryCommandState('template') === -1\" dropdown-toggle><a href class=\"temp-item {{ minder.queryCommandValue('template') }}\" title=\"{{ minder.queryCommandValue('template') | lang: 'template' }}\"></a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu temp-list\"><li ng-repeat=\"(key, templateObj) in templateList\" class=\"temp-item-wrap\"><a ng-click=\"minder.execCommand('template', key);\" class=\"temp-item {{key}}\" ng-class=\"{ 'temp-item-selected' : key == minder.queryCommandValue('template') }\" title=\"{{ key | lang: 'template' }}\"></a></li></ul></div>"
+    "<div class=\"dropdown temp-panel\" uib-dropdown on-toggle=\"toggled(open)\"><div class=\"dropdown-toggle current-temp-item\" ng-disabled=\"minder.queryCommandState('template') === -1\" uib-dropdown-toggle><a href class=\"temp-item {{ minder.queryCommandValue('template') }}\" title=\"{{ minder.queryCommandValue('template') | lang: 'template' }}\"></a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu temp-list\"><li ng-repeat=\"(key, templateObj) in templateList\" class=\"temp-item-wrap\"><a ng-click=\"minder.execCommand('template', key);\" class=\"temp-item {{key}}\" ng-class=\"{ 'temp-item-selected' : key == minder.queryCommandValue('template') }\" title=\"{{ key | lang: 'template' }}\"></a></li></ul></div>"
   );
 
 
   $templateCache.put('ui/directive/themeList/themeList.html',
-    "<div class=\"dropdown theme-panel\" dropdown><div class=\"dropdown-toggle theme-item-selected\" dropdown-toggle ng-disabled=\"minder.queryCommandState('theme') === -1\"><a href class=\"theme-item\" ng-style=\"getThemeThumbStyle(minder.queryCommandValue('theme'))\" title=\"{{ minder.queryCommandValue('theme') | lang: 'theme'; }}\">{{ minder.queryCommandValue('theme') | lang: 'theme'; }}</a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu theme-list\"><li ng-repeat=\"key in themeKeyList\" class=\"theme-item-wrap\"><a ng-click=\"minder.execCommand('theme', key);\" class=\"theme-item\" ng-style=\"getThemeThumbStyle(key)\" title=\"{{ key | lang: 'theme'; }}\">{{ key | lang: 'theme'; }}</a></li></ul></div>"
+    "<div class=\"dropdown theme-panel\" uib-dropdown><div class=\"dropdown-toggle theme-item-selected\" uib-dropdown-toggle ng-disabled=\"minder.queryCommandState('theme') === -1\"><a href class=\"theme-item\" ng-style=\"getThemeThumbStyle(minder.queryCommandValue('theme'))\" title=\"{{ minder.queryCommandValue('theme') | lang: 'theme'; }}\">{{ minder.queryCommandValue('theme') | lang: 'theme'; }}</a> <span class=\"caret\"></span></div><ul class=\"dropdown-menu theme-list\"><li ng-repeat=\"key in themeKeyList\" class=\"theme-item-wrap\"><a ng-click=\"minder.execCommand('theme', key);\" class=\"theme-item\" ng-style=\"getThemeThumbStyle(key)\" title=\"{{ key | lang: 'theme'; }}\">{{ key | lang: 'theme'; }}</a></li></ul></div>"
   );
 
 
   $templateCache.put('ui/directive/topTab/topTab.html',
-    "<tabset><tab heading=\"{{ 'idea' | lang: 'ui/tabs'; }}\" ng-click=\"toggleTopTab('idea')\" select=\"setCurTab('idea')\"><undo-redo editor=\"editor\"></undo-redo><append-node minder=\"minder\"></append-node><arrange minder=\"minder\"></arrange><operation minder=\"minder\"></operation><hyper-link minder=\"minder\"></hyper-link><image-btn minder=\"minder\"></image-btn><note-btn minder=\"minder\"></note-btn><priority-editor minder=\"minder\"></priority-editor><progress-editor minder=\"minder\"></progress-editor><resource-editor minder=\"minder\"></resource-editor></tab><tab heading=\"{{ 'appearence' | lang: 'ui/tabs'; }}\" ng-click=\"toggleTopTab('appearance')\" select=\"setCurTab('appearance')\"><template-list minder=\"minder\" class=\"inline-directive\"></template-list><theme-list minder=\"minder\"></theme-list><layout minder=\"minder\" class=\"inline-directive\"></layout><style-operator minder=\"minder\" class=\"inline-directive\"></style-operator><font-operator minder=\"minder\" class=\"inline-directive\"></font-operator></tab><tab heading=\"{{ 'view' | lang: 'ui/tabs'; }}\" ng-click=\"toggleTopTab('view')\" select=\"setCurTab('view')\"><expand-level minder=\"minder\"></expand-level><select-all minder=\"minder\"></select-all><search-btn minder=\"minder\"></search-btn></tab></tabset>"
+    "<uib-tabset><uib-tab heading=\"{{ 'idea' | lang: 'ui/tabs'; }}\" ng-click=\"toggleTopTab('idea')\" select=\"setCurTab('idea')\"><undo-redo editor=\"editor\"></undo-redo><append-node minder=\"minder\"></append-node><arrange minder=\"minder\"></arrange><operation minder=\"minder\"></operation><hyper-link minder=\"minder\"></hyper-link><image-btn minder=\"minder\"></image-btn><note-btn minder=\"minder\"></note-btn><priority-editor minder=\"minder\"></priority-editor><progress-editor minder=\"minder\"></progress-editor><resource-editor minder=\"minder\"></resource-editor></uib-tab><uib-tab heading=\"{{ 'appearence' | lang: 'ui/tabs'; }}\" ng-click=\"toggleTopTab('appearance')\" select=\"setCurTab('appearance')\"><template-list minder=\"minder\" class=\"inline-directive\"></template-list><theme-list minder=\"minder\"></theme-list><layout minder=\"minder\" class=\"inline-directive\"></layout><style-operator minder=\"minder\" class=\"inline-directive\"></style-operator><font-operator minder=\"minder\" class=\"inline-directive\"></font-operator></uib-tab><uib-tab heading=\"{{ 'view' | lang: 'ui/tabs'; }}\" ng-click=\"toggleTopTab('view')\" select=\"setCurTab('view')\"><expand-level minder=\"minder\"></expand-level><select-all minder=\"minder\"></select-all><search-btn minder=\"minder\"></search-btn></uib-tab></uib-tabset>"
   );
 
 
@@ -2231,7 +2231,7 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('ui/dialog/image/image.tpl.html',
-    "<div class=\"modal-header\"><h3 class=\"modal-title\">图片</h3></div><div class=\"modal-body\"><tabset><tab heading=\"图片搜索\"><form class=\"form-inline\"><div class=\"form-group\"><label for=\"search-keyword\">关键词：</label><input type=\"text\" class=\"form-control\" ng-model=\"data.searchKeyword2\" id=\"search-keyword\" placeholder=\"请输入搜索的关键词\"></div><button class=\"btn btn-primary\" ng-click=\"searchImage()\">百度一下</button></form><div class=\"search-result\" id=\"search-result\"><ul><li ng-repeat=\"image in list\" id=\"{{ 'img-item' + $index }}\" ng-class=\"{'selected' : isSelected}\" ng-click=\"selectImage($event)\"><img id=\"{{ 'img-' + $index }}\" ng-src=\"{{ image.src || '' }}\" alt=\"{{ image.title }}\" onerror=\"this.parentNode.removeChild(this)\"> <span>{{ image.title }}</span></li></ul></div></tab><tab heading=\"外链图片\"><form><div class=\"form-group\" ng-class=\"{true: 'has-success', false: 'has-error'}[urlPassed]\"><label for=\"image-url\">链接地址：</label><input type=\"text\" class=\"form-control\" ng-model=\"data.url\" ng-blur=\"urlPassed = data.R_URL.test(data.url)\" ng-focus=\"this.value = data.url\" ng-keydown=\"shortCut($event)\" id=\"image-url\" placeholder=\"必填：以 http(s):// 开头\"></div><div class=\"form-group\" ng-class=\"{'has-success' : titlePassed}\"><label for=\"image-title\">提示文本：</label><input type=\"text\" class=\"form-control\" ng-model=\"data.title\" ng-blur=\"titlePassed = true\" id=\"image-title\" placeholder=\"选填：鼠标在图片上悬停时提示的文本\"></div><div class=\"form-group\"><label for=\"image-preview\">图片预览：</label><img class=\"image-preview\" id=\"image-preview\" ng-src=\"{{ data.url }}\" alt=\"{{ data.title }}\"></div></form></tab><tab heading=\"上传图片\" active=\"true\"><form><div class=\"form-group\"><input type=\"file\" name=\"upload-image\" id=\"upload-image\" class=\"upload-image\" accept=\".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF\" onchange=\"angular.element(this).scope().uploadImage()\"><label for=\"upload-image\" class=\"btn btn-primary\"><span>选择文件&hellip;</span></label></div><div class=\"form-group\" ng-class=\"{'has-success' : titlePassed}\"><label for=\"image-title\">提示文本：</label><input type=\"text\" class=\"form-control\" ng-model=\"data.title\" ng-blur=\"titlePassed = true\" id=\"image-title\" placeholder=\"选填：鼠标在图片上悬停时提示的文本\"></div><div class=\"form-group\"><label for=\"image-preview\">图片预览：</label><img class=\"image-preview\" id=\"image-preview\" ng-src=\"{{ data.url }}\" title=\"{{ data.title }}\" alt=\"{{ data.title }}\"></div></form></tab></tabset></div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">确定</button> <button class=\"btn btn-warning\" ng-click=\"cancel()\">取消</button></div>"
+    "<div class=\"modal-header\"><h3 class=\"modal-title\">图片</h3></div><div class=\"modal-body km-modal\"><form><div class=\"form-group\"><input type=\"file\" name=\"minder-editor-upload-image\" id=\"minder-editor-upload-image\" class=\"minder-editor-upload-image\" accept=\".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF\" onchange=\"angular.element(this).scope().uploadImage()\"><label for=\"minder-editor-upload-image\" class=\"btn btn-primary\"><span>选择文件&hellip;</span></label></div><div class=\"form-group\" ng-class=\"{'has-success' : titlePassed}\"><label for=\"image-title\">提示文本：</label><input type=\"text\" class=\"form-control\" ng-model=\"data.title\" ng-blur=\"titlePassed = true\" id=\"image-title\" placeholder=\"选填：鼠标在图片上悬停时提示的文本\"></div><div class=\"form-group\"><label for=\"image-preview\">图片预览：</label><img class=\"image-preview\" id=\"image-preview\" ng-src=\"{{ data.url }}\" title=\"{{ data.title }}\" alt=\"{{ data.title }}\"></div></form></div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"ok()\">确定</button> <button class=\"btn btn-warning\" ng-click=\"cancel()\">取消</button></div>"
   );
 
 }]);
@@ -2249,7 +2249,7 @@ angular.module('kityminderEditor').service('commandBinder', function() {
 	};
 });
 angular.module('kityminderEditor')
-	.provider('config',  function() {
+	.provider('kmConfig',  function() {
 
 		this.config = {
 			// 右侧面板最小宽度
@@ -2268,7 +2268,8 @@ angular.module('kityminderEditor')
 			zoom: [10, 20, 30, 50, 80, 100, 120, 150, 200],
 
             // 图片上传接口
-            imageUpload: 'server/imageUpload.php'
+			imageUpload: 'server/imageUpload.php',
+			
 		};
 
 		this.set = function(key, value) {
@@ -2870,7 +2871,7 @@ angular.module('kityminderEditor')
         }
     };
 }])
-angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.service', function($modal, minderService) {
+angular.module('kityminderEditor').service('revokeDialog', ['$uibModal', 'minder.service', function($uibModal, minderService) {
 
     minderService.registerEvent(function() {
 
@@ -2883,7 +2884,7 @@ angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.se
         minder.on('importNodeData', function() {
             parentFSM.jump('modal', 'import-text-modal');
 
-            var importModal = $modal.open({
+            var importModal = $uibModal.open({
                 animation: true,
                 templateUrl: 'ui/dialog/imExportNode/imExportNode.tpl.html',
                 controller: 'imExportNode.ctrl',
@@ -2918,7 +2919,7 @@ angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.se
         minder.on('exportNodeData', function() {
             parentFSM.jump('modal', 'export-text-modal');
 
-            var exportModal = $modal.open({
+            var exportModal = $uibModal.open({
                 animation: true,
                 templateUrl: 'ui/dialog/imExportNode/imExportNode.tpl.html',
                 controller: 'imExportNode.ctrl',
@@ -2963,18 +2964,27 @@ angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.se
  * @copyright: Baidu FEX, 2015
  */
 angular.module('kityminderEditor')
-    .service('server', ['config', '$http',  function(config, $http) {
+    .service('server', ['kmConfig', '$http', '$lcUpload', '$rootScope', function(kmConfig, $http, $lcUpload, $rootScope) {
 
         return {
-            uploadImage: function(file) {
-                var url = config.get('imageUpload');
-                var fd = new FormData();
-                fd.append('upload_file', file);
+            uploadImage: function(file, success) {
+                var _team_id = $rootScope.global.me.team;
+                var _files = [{
+                    team_id: _team_id,
+                    title: file.name,
+                    identifier: 'uploadImg',
+                    original: file
+                }]
+                  
+                $lcUpload.uploadPublicFileAnonymousAttachment(_files, success);
+                // var url = kmConfig.get('imageUpload');
+                // var fd = new FormData();
+                // fd.append('upload_file', file);
 
-                return $http.post(url, fd, {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
-                });
+                // return $http.post(url, fd, {
+                //     transformRequest: angular.identity,
+                //     headers: {'Content-Type': undefined}
+                // });
             }
         }
     }]);
@@ -2996,9 +3006,9 @@ angular.module('kityminderEditor')
 
 
 angular.module('kityminderEditor')
-	.filter('lang', ['config', 'lang.zh-cn', function(config, lang) {
+	.filter('lang', ['kmConfig', 'lang.zh-cn', function(kmConfig, lang) {
 		return function(text, block) {
-			var defaultLang = config.get('defaultLang');
+			var defaultLang = kmConfig.get('defaultLang');
 
 			if (lang[defaultLang] == undefined) {
 				return '未发现对应语言包，请检查 lang.xxx.service.js!';
@@ -3015,7 +3025,7 @@ angular.module('kityminderEditor')
 		};
 	}]);
 angular.module('kityminderEditor')
-    .controller('hyperlink.ctrl', ["$scope", "$modalInstance", "link", function ($scope, $modalInstance, link) {
+    .controller('hyperlink.ctrl', ["$scope", "$uibModalInstance", "link", function ($scope, $uibModalInstance, link) {
 
         var urlRegex = '^(?!mailto:)(?:(?:http|https|ftp)://)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$';
         $scope.R_URL = new RegExp(urlRegex, 'i');
@@ -3041,7 +3051,7 @@ angular.module('kityminderEditor')
 
         $scope.ok = function () {
             if($scope.R_URL.test($scope.url)) {
-                $modalInstance.close({
+                $uibModalInstance.close({
                     url: $scope.url,
                     title: $scope.title
                 });
@@ -3056,13 +3066,13 @@ angular.module('kityminderEditor')
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
             editor.receiver.selectAll();
         };
 
     }]);
 angular.module('kityminderEditor')
-    .controller('imExportNode.ctrl', ["$scope", "$modalInstance", "title", "defaultValue", "type", function ($scope, $modalInstance, title, defaultValue, type) {
+    .controller('imExportNode.ctrl', ["$scope", "$uibModalInstance", "title", "defaultValue", "type", function ($scope, $uibModalInstance, title, defaultValue, type) {
 
         $scope.title = title;
 
@@ -3074,12 +3084,12 @@ angular.module('kityminderEditor')
             if ($scope.value == '') {
                 return;
             }
-            $modalInstance.close($scope.value);
+            $uibModalInstance.close($scope.value);
             editor.receiver.selectAll();
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
             editor.receiver.selectAll();
         };
 
@@ -3157,7 +3167,7 @@ angular.module('kityminderEditor')
 
     }]);
 angular.module('kityminderEditor')
-    .controller('image.ctrl', ['$http', '$scope', '$modalInstance', 'image', 'server', function($http, $scope, $modalInstance, image, server) {
+    .controller('image.ctrl', ['$http', '$scope', '$uibModalInstance', 'image', 'server','$rootScope', function($http, $scope, $uibModalInstance, image, server, $rootScope) {
 
         $scope.data = {
             list: [],
@@ -3166,80 +3176,83 @@ angular.module('kityminderEditor')
             R_URL: /^https?\:\/\/\w+/
         };
 
-        setTimeout(function() {
-            var $imageUrl = $('#image-url');
-            $imageUrl.focus();
-            $imageUrl[0].setSelectionRange(0, $scope.data.url.length);
-        }, 300);
+        // setTimeout(function() {
+        //     var $imageUrl = $('#image-url');
+        //     $imageUrl.focus();
+        //     $imageUrl[0].setSelectionRange(0, $scope.data.url.length);
+        // }, 300);
 
 
         // 搜索图片按钮点击事件
-        $scope.searchImage = function() {
-            $scope.list = [];
+        // $scope.searchImage = function() {
+        //     $scope.list = [];
 
-            getImageData()
-                .success(function(json) {
-                    if(json && json.data) {
-                        for(var i = 0; i < json.data.length; i++) {
-                            if(json.data[i].objURL) {
-                                $scope.list.push({
-                                    title: json.data[i].fromPageTitleEnc,
-                                    src: json.data[i].middleURL,
-                                    url: json.data[i].middleURL
-                                });
-                            }
-                        }
-                    }
-                })
-                .error(function() {
+        //     getImageData()
+        //         .success(function(json) {
+        //             if(json && json.data) {
+        //                 for(var i = 0; i < json.data.length; i++) {
+        //                     if(json.data[i].objURL) {
+        //                         $scope.list.push({
+        //                             title: json.data[i].fromPageTitleEnc,
+        //                             src: json.data[i].middleURL,
+        //                             url: json.data[i].middleURL
+        //                         });
+        //                     }
+        //                 }
+        //             }
+        //         })
+        //         .error(function() {
 
-                });
-        };
+        //         });
+        // };
 
         // 选择图片的鼠标点击事件
-        $scope.selectImage = function($event) {
-            var targetItem = $('#img-item'+ (this.$index));
-            var targetImg = $('#img-'+ (this.$index));
+        // $scope.selectImage = function($event) {
+        //     var targetItem = $('#img-item'+ (this.$index));
+        //     var targetImg = $('#img-'+ (this.$index));
 
-            targetItem.siblings('.selected').removeClass('selected');
-            targetItem.addClass('selected');
+        //     targetItem.siblings('.selected').removeClass('selected');
+        //     targetItem.addClass('selected');
 
-            $scope.data.url = targetImg.attr('src');
-            $scope.data.title = targetImg.attr('alt');
-        };
+        //     $scope.data.url = targetImg.attr('src');
+        //     $scope.data.title = targetImg.attr('alt');
+        // };
 
         // 自动上传图片，后端需要直接返回图片 URL
         $scope.uploadImage = function() {
-            var fileInput = $('#upload-image');
+            var fileInput = $('#minder-editor-upload-image');
             if (!fileInput.val()) {
                 return;
             }
             if (/^.*\.(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG)$/.test(fileInput.val())) {
                 var file = fileInput[0].files[0];
-                return server.uploadImage(file).then(function (json) {
-                    var resp = json.data;
-                    if (resp.errno === 0) {
-                        $scope.data.url = resp.data.url;
-                    }
-                });
+                server.uploadImage(file, function(driveFile, res){
+                    $scope.data.url =  $rootScope.global.config.box.baseUrl + '/public/' + res.path;
+                })
+                // return server.uploadImage(file).then(function (json) {
+                //     var resp = json.data;
+                //     if (resp.errno === 0) {
+                //         $scope.data.url = resp.data.url;
+                //     }
+                // });
             } else {
                 alert("后缀只能是 jpg、gif 及 png");
             }
         };
 
-        $scope.shortCut = function(e) {
-            e.stopPropagation();
+        // $scope.shortCut = function(e) {
+        //     e.stopPropagation();
 
-            if (e.keyCode == 13) {
-                $scope.ok();
-            } else if (e.keyCode == 27) {
-                $scope.cancel();
-            }
-        };
+        //     if (e.keyCode == 13) {
+        //         $scope.ok();
+        //     } else if (e.keyCode == 27) {
+        //         $scope.cancel();
+        //     }
+        // };
 
         $scope.ok = function () {
             if($scope.data.R_URL.test($scope.data.url)) {
-                $modalInstance.close({
+                $uibModalInstance.close({
                     url: $scope.data.url,
                     title: $scope.data.title
                 });
@@ -3258,17 +3271,17 @@ angular.module('kityminderEditor')
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
             editor.receiver.selectAll();
         };
 
-        function getImageData() {
-            var key = $scope.data.searchKeyword2;
-            var currentTime = new Date();
-            var url = 'http://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&fp=result&queryWord='+ key +'&cl=2&lm=-1&ie=utf-8&oe=utf-8&st=-1&ic=0&word='+ key +'&face=0&istype=2&nc=1&pn=60&rn=60&gsm=3c&'+ currentTime.getTime() +'=&callback=JSON_CALLBACK';
+        // function getImageData() {
+        //     var key = $scope.data.searchKeyword2;
+        //     var currentTime = new Date();
+        //     var url = 'http://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&fp=result&queryWord='+ key +'&cl=2&lm=-1&ie=utf-8&oe=utf-8&st=-1&ic=0&word='+ key +'&face=0&istype=2&nc=1&pn=60&rn=60&gsm=3c&'+ currentTime.getTime() +'=&callback=JSON_CALLBACK';
 
-            return $http.jsonp(url);
-        }
+        //     return $http.jsonp(url);
+        // }
     }]);
 angular.module('kityminderEditor')
     .directive('appendNode', ['commandBinder', function(commandBinder) {
@@ -3449,7 +3462,7 @@ angular.module('kityminderEditor')
 		}
 	});
 angular.module('kityminderEditor')
-    .directive('hyperLink', ['$modal', function($modal) {
+    .directive('hyperLink', ['$uibModal', function($uibModal) {
         return {
             restrict: 'E',
             templateUrl: 'ui/directive/hyperLink/hyperLink.html',
@@ -3464,7 +3477,7 @@ angular.module('kityminderEditor')
 
                     var link = minder.queryCommandValue('HyperLink');
 
-                    var hyperlinkModal = $modal.open({
+                    var hyperlinkModal = $uibModal.open({
                         animation: true,
                         templateUrl: 'ui/dialog/hyperlink/hyperlink.tpl.html',
                         controller: 'hyperlink.ctrl',
@@ -3484,7 +3497,7 @@ angular.module('kityminderEditor')
         }
     }]);
 angular.module('kityminderEditor')
-    .directive('imageBtn', ['$modal', function($modal) {
+    .directive('imageBtn', ['$uibModal', function($uibModal) {
         return {
             restrict: 'E',
             templateUrl: 'ui/directive/imageBtn/imageBtn.html',
@@ -3499,7 +3512,7 @@ angular.module('kityminderEditor')
 
                     var image = minder.queryCommandValue('image');
 
-                    var imageModal = $modal.open({
+                    var imageModal = $uibModal.open({
                         animation: true,
                         templateUrl: 'ui/dialog/image/image.tpl.html',
                         controller: 'image.ctrl',
@@ -3519,7 +3532,7 @@ angular.module('kityminderEditor')
         }
     }]);
 angular.module('kityminderEditor')
-	.directive('kityminderEditor', ['config', 'minder.service', 'revokeDialog', function(config, minderService, revokeDialog) {
+	.directive('kityminderEditor', ['kmConfig', 'minder.service', 'revokeDialog', function(kmConfig, minderService, revokeDialog) {
 		return {
 			restrict: 'EA',
 			templateUrl: 'ui/directive/kityminderEditor/kityminderEditor.html',
@@ -3542,36 +3555,36 @@ angular.module('kityminderEditor')
 
 				if (typeof(seajs) != 'undefined') {
 					/* global seajs */
-					seajs.config({
-						base: './src'
-					});
+					// seajs.config({
+					// 	base: './src'
+					// });
 
-					define('demo', function(require) {
-						var Editor = require('editor');
+					// define('demo', function(require) {
+					// 	var Editor = require('editor');
 
-						var editor = window.editor = new Editor($minderEditor);
+					// 	var editor = window.editor = new Editor($minderEditor);
 
-						if (window.localStorage.__dev_minder_content) {
-							editor.minder.importJson(JSON.parse(window.localStorage.__dev_minder_content));
-						}
+					// 	if (window.localStorage.__dev_minder_content) {
+					// 		editor.minder.importJson(JSON.parse(window.localStorage.__dev_minder_content));
+					// 	}
 
-						editor.minder.on('contentchange', function() {
-							window.localStorage.__dev_minder_content = JSON.stringify(editor.minder.exportJson());
-						});
+					// 	editor.minder.on('contentchange', function() {
+					// 		window.localStorage.__dev_minder_content = JSON.stringify(editor.minder.exportJson());
+					// 	});
 
-						window.minder = window.km = editor.minder;
+					// 	window.minder = window.km = editor.minder;
 
-						scope.editor = editor;
-						scope.minder = minder;
-                        scope.config = config.get();
+					// 	scope.editor = editor;
+					// 	scope.minder = minder;
+          //               scope.config = kmConfig.get();
 
-                        //scope.minder.setDefaultOptions(scope.config);
-						scope.$apply();
+          //               //scope.minder.setDefaultOptions(scope.config);
+					// 	scope.$apply();
 
-						onInit(editor, minder);
-					});
+					// 	onInit(editor, minder);
+					// });
 
-					seajs.use('demo');
+					// seajs.use('demo');
 
 				} else if (window.kityminder && window.kityminder.Editor) {
 					var editor = new kityminder.Editor($minderEditor);
@@ -3579,7 +3592,7 @@ angular.module('kityminderEditor')
 					window.editor = scope.editor = editor;
 					window.minder = scope.minder = editor.minder;
 
-                    scope.config = config.get();
+                    scope.config = kmConfig.get();
 
                     //scope.minder.setDefaultOptions(config.getConfig());
 
@@ -3590,7 +3603,7 @@ angular.module('kityminderEditor')
 		}
 	}]);
 angular.module('kityminderEditor')
-    .directive('kityminderViewer', ['config', 'minder.service', function(config, minderService) {
+    .directive('kityminderViewer', ['kmConfig', 'minder.service', function(kmConfig, minderService) {
         return {
             restrict: 'EA',
             templateUrl: 'ui/directive/kityminderViewer/kityminderViewer.html',
@@ -3647,7 +3660,7 @@ angular.module('kityminderEditor')
  *
  * @copyright: Baidu FEX, 2015 */
 angular.module('kityminderEditor')
-    .directive('navigator', ['memory', 'config', function(memory, config) {
+    .directive('navigator', ['memory', 'kmConfig', function(memory, kmConfig) {
         return {
             restrict: 'A',
             templateUrl: 'ui/directive/navigator/navigator.html',
@@ -3655,7 +3668,7 @@ angular.module('kityminderEditor')
                 minder: '='
             },
             link: function(scope) {
-                minder.setDefaultOptions({zoom: config.get('zoom')});
+                minder.setDefaultOptions({zoom: kmConfig.get('zoom')});
 
                 scope.isNavOpen = !memory.get('navigator-hidden');
 
@@ -4021,11 +4034,13 @@ angular.module('kityminderEditor')
 					var ph = $($previewer).outerHeight();
 
 					var x = b.cx - pw / 2 - $container[0].offsetLeft;
-					var y = b.bottom + 10 - $container[0].offsetTop;
+					// var y = b.bottom + 10 - $container[0].offsetTop;
+					var y = b.bottom + 10 - $('.minder-editor-container').offset().top;
 
 					if (x < 0) x = 10;
 					if (x + pw > cw) x = b.left - pw - 10 - $container[0].offsetLeft;
-					if (y + ph > ch) y = b.top - ph - 10 - $container[0].offsetTop;
+					// if (y + ph > ch) y = b.top - ph - 10 - $container[0].offsetTop;
+					if (y + ph > ch) y = b.top - ph - 10 - $('.minder-editor-container').offset().top
 
 
 					scope.previewerStyle = {

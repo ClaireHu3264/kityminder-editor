@@ -42,8 +42,9 @@ module.exports = function(grunt) {
             last: [
 	            '.tmp',
 	            'dist/*.js',
-	            'dist/*.css',
-	            'dist/*.css.map'
+	            'dist/styles/*.css',
+                'dist/styles/*.css.map',
+                'dist/image/*.png'
             ],
 	        clstmp: ['.tmp']
         },
@@ -117,10 +118,10 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
 	                sourceMapURL: 'kityminder.editor.css.map',
-                    sourceMapFilename: 'dist/kityminder.editor.css.map'
+                    sourceMapFilename: 'dist/styles/kityminder.editor.css.map'
                 },
                 files: [{
-                    dest: 'dist/kityminder.editor.css',
+                    dest: 'dist/styles/kityminder.editor.css',
                     src: 'less/editor.less'
                 }]
             }
@@ -129,7 +130,7 @@ module.exports = function(grunt) {
 	    cssmin: {
 	        dist: {
 	            files: {
-	                'dist/kityminder.editor.min.css': 'dist/kityminder.editor.css'
+	                'dist/styles/kityminder.editor.min.css': 'dist/styles/kityminder.editor.css'
 	         }
 	       }
 	    },
@@ -165,7 +166,7 @@ module.exports = function(grunt) {
 				files: [{
 				    expand: true,
 				    cwd: 'ui',
-					src: 'images/*',
+					src: 'image/*/*',
 				    dest: 'dist'
 
 			    }]
